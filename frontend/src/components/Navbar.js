@@ -7,6 +7,10 @@ const Navbar = () => {
                 <Link to="/">
                     <h1>VAW Tracker</h1>
                 </Link>
+                <ul className="nav-items">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/create">Report Case</Link></li>
+                </ul>
             </div>
         </header>
     )
