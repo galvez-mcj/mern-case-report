@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
+import { useCaseContext } from "../hooks/useCaseContext"
 
 // components
 import CaseDetails from "../components/CaseDetails"
 
 const Home = () => {
-    const [ cases, setCases ] = useState(null)
+    // global context
+    const { cases, dispatch } = useCaseContext()
 
     useEffect( () => {
         const fetchCases = async () => {
@@ -17,7 +19,7 @@ const Home = () => {
                 })
                 .then(data => {
                     // Process the JSON data
-                    setCases(data)
+                    dispatch({ type: 'SET_CASES', payload: data})
                 })
                 .catch(error => {
                     console.error('There was a problem with the fetch operation:', error);
@@ -25,7 +27,7 @@ const Home = () => {
         }
 
         fetchCases()
-    }, [])
+    }, [dispatch])
 
     return (
         <div className="home">

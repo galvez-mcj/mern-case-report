@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react"
 import { useNavigate } from 'react-router-dom';
+import { useCaseContext } from "../hooks/useCaseContext"
 
 const formReducer = (state, event) => {
     return {
@@ -9,6 +10,7 @@ const formReducer = (state, event) => {
 }
 
 const Report = () => {
+    const { dispatch } = useCaseContext()
     const [victim, setVictim] = useReducer(formReducer, {
         name: '',
         occupation: '',
@@ -54,6 +56,8 @@ const Report = () => {
         if (response.ok) {
             setError(null)
             console.log('New case added', json)
+            dispatch({ type: 'CREATE_CASE', payload: json})
+            alert('Case successfully submitted.')
             navigate('/')
         }
     }
