@@ -1,4 +1,5 @@
 import { useReducer, useState } from "react"
+import { useNavigate } from 'react-router-dom';
 
 const formReducer = (state, event) => {
     return {
@@ -30,13 +31,12 @@ const Report = () => {
     })
 
     const [error, setError] = useState(null)
-
+    const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
         const newCase = { victim, perpetrator, report }
-        console.log(newCase)
 
         const response = await fetch('http://localhost:5000/api/cases', {
             method: 'POST',
@@ -50,12 +50,11 @@ const Report = () => {
         if (!response.ok) {
             setError(json.error)
         }
+
         if (response.ok) {
-            setVictim({})
-            setPerpetrator({})
-            setReport({})
             setError(null)
             console.log('New case added', json)
+            navigate('/')
         }
     }
 

@@ -1,6 +1,5 @@
 /* google font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 /* layout */
 :root {
   --primary: #1aac83;
@@ -9,7 +8,7 @@
 body {
   background: #f1f1f1;
   margin: 0;
-  font-family: "Poppins";
+  font-family: 'Montserrat', sans-serif;
 }
 header {
   background: #fff;
@@ -88,7 +87,14 @@ header a {
   gap: 50px;
 } */
 
-/* new workout form */
+/* report page*/
+.report {
+  display: grid;
+  grid-template-columns: 3fr 1fr; /*should change for form layout*/
+  gap: 100px;
+}
+
+/* new case form */
 label, input {
   display: block;
 }

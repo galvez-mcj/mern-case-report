@@ -31,7 +31,7 @@ const createCase = async (req, res) => {
         const newCase = await Case.create({victim, perpetrator, report})
         res.status(200).json(newCase)
     } catch (err) {
-        res.status(400).json({ error: error.message })
+        res.status(400).json({ error: err.message })
     }
 }
 
