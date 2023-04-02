@@ -12,7 +12,7 @@ const CaseDetails = ({ oneCase }) => {
 
         if (response.ok) {
             dispatch({ type: 'DELETE_CASE', payload: json })
-            alert('Case successfully deleted.')
+            alert('Case successfully deleted. Please refresh the page.')
         }
     }
 
