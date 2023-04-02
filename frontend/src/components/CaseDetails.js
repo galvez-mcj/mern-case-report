@@ -1,8 +1,10 @@
 import { useCaseContext } from "../hooks/useCaseContext"
+import { useNavigate } from 'react-router-dom';
 
 const CaseDetails = ({ oneCase }) => {
     const { dispatch } = useCaseContext()
     const { victim, perpetrator, report, createdAt } = oneCase
+    const navigate = useNavigate()
     
     const handleClick = async () => {
         const response = await fetch('http://localhost:5000/api/cases/' + oneCase._id, {
@@ -12,7 +14,8 @@ const CaseDetails = ({ oneCase }) => {
 
         if (response.ok) {
             dispatch({ type: 'DELETE_CASE', payload: json })
-            alert('Case successfully deleted. Please refresh the page.')
+            alert('Case successfully deleted.')
+            navigate(0);
         }
     }
 
