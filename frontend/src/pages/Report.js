@@ -87,9 +87,11 @@ const Report = () => {
         <div className="report">
             <form className="create" onSubmit={handleSubmit}>
                 <h2>Report a VAW Case</h2>
+                <p>* required</p>
                 {/* Victim Details */}
+                <div className="form-part">
                 <h4>Victim Details</h4>
-                <label>Name
+                <label>Name *
                     <input 
                         onChange={handleVicChange}
                         value={victim.name}
@@ -98,7 +100,7 @@ const Report = () => {
                         required
                     />
                 </label>
-                <label>Occupation
+                <label>Occupation *
                     <input 
                         onChange={handleVicChange}
                         value={victim.occupation}
@@ -116,7 +118,7 @@ const Report = () => {
                         name="age"
                     />
                 </label>
-                <label>Phone Number
+                <label>Cellphone Number *
                     <input 
                         onChange={handleVicChange}
                         value={victim.phone}
@@ -133,8 +135,11 @@ const Report = () => {
                         name="email"
                     />
                 </label>
+                </div>
+
 
                 {/* Perpetrator Details */}
+                <div className="form-part">
                 <h4>Perpetrator Details</h4>
                 <label>Name
                     <input 
@@ -160,20 +165,26 @@ const Report = () => {
                         name="relationship"
                     />
                 </label>
+                </div>
 
                 {/* Case Details */}
+                <div className="form-part">
                 <h4>Case Details</h4>
-                <label>Category
-                    <input 
-                        onChange={handleReportChange}
-                        value={report.category}
-                        type="text"
-                        name="category"
-                        required
-                    />
+                <label>Category *
+                    <select onChange={handleReportChange}
+                            value={report.category}
+                            id="category"
+                            name="category" 
+                            required>
+                        <option value="">---</option>
+                        <option value="RA 9262">RA 9262 (Anti-Violence Against Women and Children)</option>
+                        <option value="RA 11313">RA 11313 (Anti-Bastos Law)</option>
+                        <option value="RA 8353">RA 8353 (Anti-Rape Law)</option>
+                        <option value="Acts of Lasciviousness">Acts of Lasciviousness</option>
+                    </select>
                 </label>
-                <label>Details of the case
-                    <input 
+                <label>Details of the case *
+                    <textarea 
                         onChange={handleReportChange}
                         value={report.details}
                         type="text"
@@ -189,7 +200,7 @@ const Report = () => {
                         name="actions"
                     />
                 </label>
-                <label>Expectations from Us
+                <label>Expectations from Us *
                     <input 
                         onChange={handleReportChange}
                         value={report.expectations}
@@ -198,7 +209,9 @@ const Report = () => {
                         required
                     />
                 </label>
-                <button>Report Case</button>
+                </div>
+                
+                <button className="submit-btn">Report Case</button>
                 { error && <div className="error">{error}</div>}
             </form>
         </div>

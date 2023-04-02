@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 /* layout */
 :root {
-  --primary: #1aac83;
+  --primary: #e7195a;
   --error: #e7195a;
 }
 body {
@@ -42,21 +42,38 @@ header a {
   padding: 10px 20px;
 }
 
-/* homepage */
-.home {
-  display: grid;
-  grid-template-columns: 3fr 1fr; /*should change for form layout*/
-  gap: 100px;
+@media screen and (max-width: 420px) {
+  header .container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-items {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
+
+.cases {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .case-details {
   background: #fff;
   border-radius: 4px;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
-  /* width: max-content; */
+  width: 250px;
 }
+
 .case-details h2 {
   margin: 0 0 10px 0;
   font-size: 1.5em;
@@ -88,17 +105,18 @@ header a {
 } */
 
 /* report page*/
-.report {
+/* .report {
   display: grid;
-  grid-template-columns: 3fr 1fr; /*should change for form layout*/
+  grid-template-columns: 3fr 1fr;
   gap: 100px;
-}
+} */
 
 /* new case form */
-label, input {
+label, input, select, textarea {
   display: block;
 }
-input {
+
+input, select, textarea {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -107,20 +125,38 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-form button {
+textarea {
+  height: 200px;
+}
+
+.submit-btn {
+  width: 100%;
   background: var(--primary);
   border: 0;
   color: #fff;
   padding: 10px;
   font-family: "Poppins";
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
 }
-div.error {
+
+.form-part {
+  margin-bottom: 35px;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0px 20px;
+}
+
+.form-part h4 {
+  color: var(--primary);
+}
+
+/* div.error {
   padding: 10px;
   background: #ffefef;
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
-}
+} */
