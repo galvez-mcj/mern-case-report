@@ -12,6 +12,10 @@ export const casesReducer = (state, action) => {
             return {
                 cases: [action.payload, ...state.cases]
             }
+        case 'DELTE_CASE': 
+            return {
+                cases: state.cases.filter((oneCase) => oneCase._id !== action.payload._id)
+            }
         default:
             return state
     }
